@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="AppMovilXamarin.Views.ListaProductos" 
+             NavigationPage.HasNavigationBar="False">
+    <!-- Agregar para las sombras-->
+    <Grid RowDefinitions="*, 3*, Auto">
+        
+        
+        <BoxView Grid.RowSpan="3">
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStopCollection>
+                        <GradientStop Color="#DBDBDB" Offset="0"/><!--161616-->
+                        <GradientStop Color="#FAFAFA" Offset="1"/><!--30343f-->
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <Grid>
+            <Path Data="M0,0H375V262.033s-9.025,4.813-55.426-10.71-70.141-83.047-130.3-83.22-83.544,67.7-130.893,83.22S0,262.033,0,262.033Z" 
+                  Aspect="Fill"
+                  Fill="#ffbe00"/>
+            
+             <!--Source="back.png" Text="back"
+                FontSize="10"
+                TextColor="#ffbe00"
+                FontAttributes="Bold"-->
+            <!--<ImageButton 
+                Source="back.png"
+                Background="#ffbe00"
+                WidthRequest="20" 
+                HeightRequest="20" 
+                HorizontalOptions="Start" 
+                VerticalOptions="Start" 
+                Margin="15"
+                CornerRadius="40"
+                Clicked="GoingBack_Click"/>-->
+            <Label Text="Lista de productos"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Margin="0, -95, 0, 0"
+                   FontSize="18"
+                   TextColor="#000"/>
+            <Image 
+                Source="back.png" 
+                WidthRequest="40" 
+                HeightRequest="18" 
+                HorizontalOptions="Start" 
+                VerticalOptions="Start" 
+                Margin="15, 25, 0, 0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GoingBack_Click"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <!--<Image 
+                Source="loupe.png" 
+                WidthRequest="20" 
+                HeightRequest="20" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start" 
+                Margin="20"/>-->
+        </Grid>
+
+
+        <StackLayout Grid.Row="1" 
+                     HorizontalOptions="Center" 
+                     Margin="0, -100, 0, 0" 
+                     Spacing="30">
+            
+            <Grid HeightRequest="100" 
+                  WidthRequest="100" 
+                  HorizontalOptions="Center">
+
+
+                <Ellipse Stroke="#ffbe00" 
+                         StrokeThickness="50" 
+                         Aspect="Fill"/>
+                <!--<Ellipse Stroke="#FAFAFA" 
+                         StrokeThickness="20" 
+                         Aspect="Fill"
+                         Margin="0, 0, 0, 0"/>-->
+
+                <Image  Source="clipboard.png" 
+                        WidthRequest="60" 
+                        HeightRequest="60" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"
+                        Margin="0"/>
+
+
+            </Grid>
+
+
+
+            <StackLayout HorizontalOptions="Center"
+                         Spacing="15"
+                         Grid.Row="2"
+                         Margin="0, 0, 0, 0"
+                         HeightRequest="400"
+                         WidthRequest="350">
+
+
+                <ListView x:Name="listaProductos" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Frame  Background="#424242"
+                        Grid.Row="1"
+                        BorderColor="#ffbe00"
+                        WidthRequest="300"
+                        HeightRequest="120"
+                        Margin="10, 10, 10, 10"
+                        HorizontalOptions="Center"
+                        CornerRadius="10">
+
+                    <StackLayout Grid.Row="1"
+                                 Orientation="Horizontal">
+                        <Grid RowSpacing="0"
+                              ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="85"  />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <BoxView     />
+                                <Label  Text="ID:"
+                                        TextColor="White"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Start" />
+                                <Label  Text="25"
+                                        TextColor="White"
+                                        FontAttributes="Bold"
+                                        FontSize="15"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start" />
+                            
+                            
+                             <!--<BoxView    Grid.Column="1" />
+                            <Label  Grid.Column="1"
+                                        TextColor="White"
+                                        Text="25"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start"/>        
+                           <BoxView    Grid.Column="2"
+                                        Color="CadetBlue" />
+                                <Label  Grid.Column="2"
+                                        Text="Upper right"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Start" />-->
+                            
+                            
+                            <BoxView    Grid.Row="1"/>
+                                <Label  Grid.Row="1"
+                                        Text="Producto:"
+                                        TextColor="White"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center" />
+                            <BoxView    Grid.Row="1"
+                                        Grid.Column="1"/>
+                                <Label  Grid.Row="1"
+                                        Grid.Column="1"
+                                        TextColor="White"
+                                        Text="Nombre del producto"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center" />
+                            <!--<BoxView    Grid.Row="1"
+                                        Grid.Column="2"
+                                        Color="DarkSlateBlue" />
+                                <Label  Grid.Row="1"
+                                        Grid.Column="2"
+                                        Text="Center right"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center" />-->
+                            
+                            
+                            <BoxView    Grid.Row="2" />
+                                <Label  Grid.Row="2"
+                                        Text="Descripcion: "
+                                        TextColor="White"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="End" />
+                            <BoxView    Grid.Row="2"
+                                        Grid.Column="1" />
+                                <Label  Grid.Row="2"
+                                        Grid.Column="1"
+                                        TextColor="White"
+                                        Text="Descripcion del producto"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="End" />
+                            <!--<BoxView    Grid.Row="2"
+                                        Grid.Column="2"
+                                        Color="Orange" />
+                                <Label  Grid.Row="2"
+                                        Grid.Column="2"
+                                        Text="Lower right"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="End" />-->
+
+                            <BoxView    Grid.Row="3" />
+                            <Label  Grid.Row="3"
+                                        Text="Localidad:"
+                                        TextColor="White"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="End" />
+                            <BoxView    Grid.Row="3"
+                                        Grid.Column="1" />
+                            <Label  Grid.Row="3"
+                                        Grid.Column="1"
+                                        TextColor="White"
+                                        Text="Localidad del producto"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="End" />
+                            <!--<BoxView    Grid.Row="3"
+                                        Grid.Column="2"
+                                        Color="Orange" />
+                            <Label  Grid.Row="3"
+                                        Grid.Column="2"
+                                        Text="Lower right"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="End" />-->
+                        </Grid>
+                    </StackLayout>
+                    
+
+                </Frame>
+                
+                
+
+            </StackLayout>
+            
+            
+            
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>

@@ -9,7 +9,9 @@ class ProductosController extends Controller
 {
     public function index()
     {
-        return Productos::paginate();
+        return Productos::paginate(50);
+        //return Productos::All();
+        //return Productos::orderBy('id', 'DESC')->get();
     }
 
     public function show($id)
@@ -35,15 +37,15 @@ class ProductosController extends Controller
 
     public function edit(Request $request , $id)
     {
-        $nombre=  $request->input('nombre');
+        /* $nombre=  $request->input('nombre');
         $descripcion = $request->input('descripcion');
-        $localidad = $request->input('localidad');
+        $localidad = $request->input('localidad'); */
 
         Productos::where('id' , $id)->update(
             [
-                'nombre' => $nombre,
-                'descripcion' => $descripcion,
-                'localidad' => $localidad
+                'nombre' => $request->input('nombre'),
+                'descripcion' =>  $request->input('descripcion'),
+                'localidad' => $request->input('localidad')
             ]
         );
 

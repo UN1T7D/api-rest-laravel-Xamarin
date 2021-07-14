@@ -13,7 +13,7 @@ class CreateProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('productos', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {// TODO: cambiar la table a productos2 a propductos
             $table->increments('id');
             $table->string('nombre','50');
             $table->string('descripcion','100');
